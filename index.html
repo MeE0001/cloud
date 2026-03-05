@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>One Sample T-Test Calculator</title>
+<style>
+body{
+font-family: Arial;
+text-align:center;
+background:#f4f4f4;
+padding:40px;
+}
+
+.container{
+background:white;
+padding:20px;
+width:450px;
+margin:auto;
+border-radius:10px;
+box-shadow:0 0 10px gray;
+}
+
+textarea,input,select{
+width:100%;
+margin-top:10px;
+padding:8px;
+}
+
+button{
+margin-top:15px;
+padding:10px;
+width:100%;
+background:green;
+color:white;
+border:none;
+font-size:16px;
+}
+
+.result{
+margin-top:20px;
+font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>📊 One Sample T-Test Calculator</h2>
+
+<form method="POST">
+
+<label>Sample Data</label>
+<textarea name="data">102, 98, 101, 105, 97, 99, 103</textarea>
+
+<label>Population Mean</label>
+<input type="number" name="pop_mean" value="108" step="any">
+
+<label>Alternative Hypothesis</label>
+<select name="hypothesis">
+<option value="two-sided">Two-sided</option>
+<option value="less">Less</option>
+<option value="greater">Greater</option>
+</select>
+
+<button type="submit">Run T-Test</button>
+
+</form>
+
+{% if t_stat %}
+<div class="result">
+T-Statistic: {{t_stat}} <br>
+P-Value: {{p_val}} <br>
+{{result}}
+</div>
+{% endif %}
+
+</div>
+
+</body>
+</html>
